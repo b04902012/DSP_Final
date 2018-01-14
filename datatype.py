@@ -16,7 +16,7 @@ class graph:
         self.nodes={}
     def add_node(string):
         if(string not in self.nodes):
-            self.nodes[string]={'node':node(),'next':set()}
+            self.nodes[string]={'node':node(),'next':set(),visited:False}
     def add_edge(string1,string2):
         self.nodes[string1].next.add(string2)
     def get_pri(string):
@@ -25,3 +25,9 @@ class graph:
         self.nodes[string].node.add_pri(pair)
     def get_avg_order(string):
         return self.nodes[string].node.get_avg_order()
+    def get_visited(string):
+        return self.nodes[string].visited
+    def visit(string):
+        self.nodes[string].visited=True
+    def unvisit(string):
+        self.nodes[string].visited=False
