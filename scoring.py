@@ -17,7 +17,7 @@ def scoring_simple(g, p): #g = graph, p = path
     sum_of_redundancy = 0.0
     for i in range(length):
         for k in range(i+1, length):
-            sum_of_redundancy += redundancy(g, p[i:k+1])
+            sum_of_redundancy += (redundancy(g, p[i:k+1]) * (k-i+1))
     return sum_of_redundancy / length
 
 

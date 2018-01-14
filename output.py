@@ -4,6 +4,7 @@ graph = datatype.graph
 node = datatype.node
 
 def output(path_score_pair, top_N, threshold):
+    print(len(path_score_pair))
     result = sorted(path_score_pair, reverse=True, key=lambda x : x[1])
     ans = []
     while len(result) > len(ans) and len(ans) < top_N:
