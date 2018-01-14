@@ -1,5 +1,4 @@
-from similarity import similarity
-
+similarity = __import__('similarity').similarity
 datatype = __import__('datatype')
 graph = datatype.graph
 node = datatype.node
