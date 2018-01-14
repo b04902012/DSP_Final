@@ -3,7 +3,6 @@ node = datatype.node
 graph = datatype.graph
 
 def end_node(g,s): //g = graph, s = node string
-    aim = g.get_pri(s)
     punctuation_list = [",", "!", ".", "?", ";"]
     if s.split('^')[0] in punctuation_list:
         return true
