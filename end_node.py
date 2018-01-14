@@ -5,8 +5,8 @@ graph = datatype.graph
 def end_node(g,s): #g = graph, s = node string
     punctuation_list = [",", "!", ".", "?", ";"]
     if s.split('^')[0] in punctuation_list:
-        return true
+        return True
     if s.split('^')[1] == "CC":
-        return true
-    return false
+        return True
+    return False
 

@@ -9,5 +9,6 @@ def graphize(sentences):
             word=sentence[wid]
             g.add_node(word)
             g.add_pri(word,(sid,wid))
-            if(i>0):
+            if(wid>0):
                 g.add_edge(sentence[wid-1],word)
+    return g

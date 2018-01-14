@@ -4,17 +4,26 @@ end_node=__import__('end_node').end_node
 
 def traversal(g):
     path_list=[]
-    def traval(g,s,p):
-        if(end_node(g,s)):
-            path_list.append(p.append(s))
+    def traval(g,s,pp):
+        if(len(pp)>10):
             return
-        for s2 in g.nodes[s].next:
-            if(not g.visited(s2)):
-                g.visit(s2)
-                traval(g,s2,p.append(s2),pl)
-                g.unvisit(s2)
+        p=pp[0:]
+        if(end_node(g,s)):
+            p.append(s)
+            path_list.append(p)
+            return
+        for s2 in g.nodes[s]['next']:
+            if(not g.get_visited(s2)):
+                if(redundancy(g,[s,s2])>len(g.nodes)//10):
+                    g.visit(s2)
+                    p.append(s)
+                    traval(g,s2,p)
+                    p.remove(s)
+                    g.unvisit(s2)
 
     for s,v in g.nodes.items():
         if(start_node(g,s,5)):
-            traval(g,s,[])
+            g.visit(s)
+            traval(g,s,list())
+            g.unvisit(s)
     return path_list
